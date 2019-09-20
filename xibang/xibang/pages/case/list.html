@@ -1,0 +1,34 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>主页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>案例管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>列表页面</dz-breadcrumb-item>
+	</dz-breadcrumb>
+	<dz-card>
+		<dz-button class="layui-btn-sm layuiadmin-btn-list layui-btn-danger">批量删除</dz-button>
+		<dz-button class="layui-btn-sm" to="/case/add">添加</dz-button>
+		<dz-grid-view data-url = "http://localhost:3000/case" v-slot="{data:cases}" lay-data="{page:true}">
+			<dz-header>
+				<row>
+					<cell name="id" width="80">编号</cell>
+					<cell name="title">标题</cell>
+					<cell name="category" width="170">分类</cell>
+					<cell name="action" width="170">操作</cell>
+				</row>
+			</dz-header>
+			<dz-body>
+				<row v-for="item in cases">
+					<cell>{{item.id}}</cell>
+					<cell>{{item.title}}</cell>
+					<cell v-if="item.category == 0">全案设计</cell>
+					<cell v-if="item.category == 1">广告设计</cell>
+					<cell>
+						<dz-button class="layui-btn-xs layui-btn-primary" :to="'/case/view?id='+item.id">查看</dz-button>
+						<dz-button class="layui-btn-xs" :to="'/case/edit?id='+item.id">编辑</dz-button>
+						<dz-button class="layui-btn-xs layui-btn-danger" :delete-url="'http://localhost:3000/case/delete?id='+item.id">删除</dz-button>
+					</cell>
+				</row>
+			</dz-body>
+		</dz-grid-view>
+	</dz-card>
+</dz-page>
