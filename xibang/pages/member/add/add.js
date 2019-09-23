@@ -1,7 +1,0 @@
-Page{{
-	methods:{
-		dousubmit(){
-
-		}
-	}
-}};
