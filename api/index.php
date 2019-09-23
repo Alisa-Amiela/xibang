@@ -13,4 +13,9 @@ $dzApi->get("/member/view",function($request){
 // 新增记录
 $dzApi->get("/member/add",function($request){
 	excel("member")->insert($request->all());
+	return ["status" => "ok"];
+});
+// 删除记录
+$dzApi-get("/member/delete",function(){
+	excel("member")->where(["id"=>1])->delete();
 });
