@@ -1,0 +1,41 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>主页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>作品管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>列表页面</dz-breadcrumb-item>
+	</dz-breadcrumb>
+	<dz-card>
+		<dz-button class="layui-btn-sm layuiadmin-btn-list layui-btn-danger">批量删除</dz-button>
+		<dz-button class="layui-btn-sm" to="/zuopin/add">添加</dz-button>
+		<dz-grid-view data-url = "http://localhost:3000/zuopin" v-slot="{data}" lay-data="{page:true}">
+			<thead>
+				<tr>
+					<th lay-data="{field: 'id'}">编号</th>
+					<th lay-data="{field: 'name'}">名称</th>
+					<th lay-data="{field:  'text'}">文案</th>
+					<th lay-data="{field: 'date'}">日期</th>
+					<th lay-data="{field: 'image'}">图片</th>
+					<th lay-data="{field: 'link'}">链接</th>
+					<th lay-data="{field: 'sort'}">排序</th>
+					<th lay-data="{field: 'action'}">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="zuopin in data">
+					<td>{{zuopin.id}}</td>
+					<td>{{zuopin.name}}</td>
+					<td>{{zuopin.text}}</td>
+					<td>{{zuopin.date}}</td>
+					<td>{{zuopin.image}}</td>
+					<td>{{zuopin.link}}</td>
+					<td>{{zuopin.sort}}</td>
+					<td>
+						<dz-button class="layui-btn-xs layui-btn-primary" :to="'/zuopin/view?id='+zuopin.id">查看</dz-button>
+                        <dz-button class="layui-btn-xs" :to="'/zuopin/edit?id='+zuopin.id">编辑</dz-button>
+						<dz-button class="layui-btn-xs layui-btn-danger" lay-event="del">删除</dz-button>
+					</td>
+				</tr>
+			</tbody>
+		</dz-grid-view>
+	</dz-card>
+</dz-page>

@@ -1,0 +1,39 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>主页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>优势管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>列表页面</dz-breadcrumb-item>
+	</dz-breadcrumb>
+	<dz-card>
+		<dz-button class="layui-btn-sm layuiadmin-btn-list layui-btn-danger">批量删除</dz-button>
+		<dz-button class="layui-btn-sm" to="/youshi/add">添加</dz-button>
+		<dz-grid-view data-url = "http://localhost:3000/youshi" v-slot="{data}" lay-data="{page:true}">
+			<thead>
+				<tr>
+					<th lay-data="{field: 'id'}">编号</th>
+					<th lay-data="{field: 'name'}">名称</th>
+					<th lay-data="{field:  'text'}">文案</th>
+					<th lay-data="{field: 'image'}">图片</th>
+					<th lay-data="{field: 'link'}">链接</th>
+					<th lay-data="{field: 'sort'}">排序</th>
+					<th lay-data="{field: 'action'}">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="youshi in data">
+					<td>{{youshi.id}}</td>
+					<td>{{youshi.name}}</td>
+					<td>{{youshi.text}}</td>
+					<td>{{youshi.image}}</td>
+					<td><a :href="youshi.link">{{youshi.link}}</a></td>
+					<td>{{youshi.sort}}</td>
+					<td>
+						<dz-button class="layui-btn-xs layui-btn-primary" :to="'/youshi/view?id='+youshi.id">查看</dz-button>
+                        <dz-button class="layui-btn-xs" :to="'/youshi/edit?id='+youshi.id">编辑</dz-button>
+						<dz-button class="layui-btn-xs layui-btn-danger" lay-event="del">删除</dz-button>
+					</td>
+				</tr>
+			</tbody>
+		</dz-grid-view>
+	</dz-card>
+</dz-page>

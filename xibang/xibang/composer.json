@@ -1,0 +1,6 @@
+{
+    "require": {
+        "douzhi/router": "^0.1.0",
+        "douzhi/database": "^0.2.5"
+    }
+}
