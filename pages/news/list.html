@@ -1,0 +1,37 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>首页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>新闻管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>新闻列表</dz-breadcrumb-item>
+    </dz-breadcrumb>
+	<dz-card>
+		<dz-button class="layui-btn-sm layui-btn-danger layuiadmin-btn-list">批量删除</dz-button>
+		<dz-button class="layui-btn-sm" to="/news/add">添加</dz-button>
+		<dz-grid-view data-url = "http://localhost:3000/news" v-slot="{data}" lay-data="{page:true}">
+			<thead>
+				<tr>
+					<th lay-data="{field: 'id'}">编号</th>
+					<th lay-data="{field: 'title'}">标题</th>
+					<th lay-data="{field: 'pubdate'}">发布日期</th>
+					<th lay-data="{field: 'content'}">内容</th>
+					<th lay-data="{field: 'sort'}">排序</th>
+					<th lay-data="{field: 'action'}">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="news in data">
+					<td>{{news.id}}</td>
+					<td>{{news.title}}</td>
+					<td>{{news.pubdate}}</td>
+					<td>{{news.content}}</td>
+					<td>{{news.sort}}</td>
+					<td>
+						<dz-button class="layui-btn-xs layui-btn-primary" :to="'/news/view?id='+news.id">查看</dz-button>
+						<dz-button class="layui-btn-xs" :to="'/news/edit?id='+news.id">编辑</dz-button>
+						<dz-button class="layui-btn-xs layui-btn-danger" lay-event="del">删除</dz-button>
+					</td>
+				</tr>
+			</tbody>
+		</dz-grid-view>
+	</dz-card>
+</dz-page>
