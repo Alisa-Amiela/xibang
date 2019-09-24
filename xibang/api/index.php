@@ -11,11 +11,11 @@ $dzApi->get("/member/view",function($request){
 	return excel("member")->where(["id"=>$request->get("id")])->find();
 });
 // 新增记录
-$dzApi->get("/member/add",function($request){
+$dzApi->post("/member/add",function($request){
 	excel("member")->insert($request->all());
 	return ["status" => "ok"];
 });
 // 删除记录
-$dzApi-get("/member/delete",function(){
-	excel("member")->where(["id"=>1])->delete();
+$dzApi->get("/member/delete",function($id){
+	excel("member")->where(["id"=>$id])->delete();
 });

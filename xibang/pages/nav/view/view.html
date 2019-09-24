@@ -5,22 +5,22 @@
 		<dz-breadcrumb-item>详情页面</dz-breadcrumb-item>
 	</dz-breadcrumb>
 	<dz-card>
-		<dz-detail-view data-url = "http://localhost:3000/navs/view" v-slot="{detail}">
+		<dz-detail-view>
 			<tr>
 				<th>编号</th>
-				<td>{{detail.id}}</td>
+				<td>{{nav.id}}</td>
 			</tr>
 			<tr>
 				<th>名称</th>
-				<td>{{detail.name}}</td>
+				<td>{{nav.name}}</td>
 			</tr>
 			<tr>
 				<th>链接</th>
-				<td><a :href="detail.link" target="_blank" >{{detail.link}}</a></td>
+				<td><a :href="nav.link" target="_blank" >{{nav.link}}</a></td>
 			</tr>
 			<tr>
 				<th>排序</th>
-				<td>{{detail.sort}}</td>
+				<td>{{nav.sort}}</td>
 			</tr>
 		</dz-detail-view>
 	</dz-card>

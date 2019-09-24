@@ -5,27 +5,27 @@
 		<dz-breadcrumb-item>详情页面</dz-breadcrumb-item>
 	</dz-breadcrumb>
 	<dz-card>
-		<dz-detail-view data-url = "http://localhost:3000/case/view" v-slot="{detail}">
+		<dz-detail-view>
 			<tr>
 				<th>编号</th>
-				<td>{{detail.id}}</td>
+				<td>{{item.id}}</td>
 			</tr>
 			<tr>
 				<th>标题</th>
-				<td>{{detail.title}}</td>
+				<td>{{item.title}}</td>
 			</tr>
 			<tr>
 				<th>分类</th>
-				<td v-if="detail.category == 0">全案设计</td>
-				<td v-if="detail.category == 1">广告设计</td>
+				<td v-if="item.category == 0">全案设计</td>
+				<td v-if="item.category == 1">广告设计</td>
 			</tr>
 			<tr>
 				<th>封面</th>
-				<td><img src="detail.cover"/></td>
+				<td><img src="item.cover"/></td>
 			</tr>
 			<tr>
 				<th>排序</th>
-				<td>{{detail.sort}}</td>
+				<td>{{item.sort}}</td>
 			</tr>
 		</dz-detail-view>
 	</dz-card>
