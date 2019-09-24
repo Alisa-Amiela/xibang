@@ -1,0 +1,44 @@
+<!-- 页面区域 -->
+<dz-page>
+    <!-- 面包屑 -->
+    <dz-breadcrumb>
+    	<dz-breadcrumb-item>首页</dz-breadcrumb-item>
+    	<dz-breadcrumb-item>导航管理</dz-breadcrumb-item>
+    	<dz-breadcrumb-item>列表页面</dz-breadcrumb-item>
+    </dz-breadcrumb>
+    <!-- /.面包屑 -->
+    <!-- 卡片面板 -->
+    <dz-card>
+      <dz-button class="layui-btn-sm layuiadmin-btn-list layui-btn-danger">批量删除</dz-button>
+      <dz-button class="layui-btn-sm" to="/pages/nav/add/add">添加</dz-button>
+      <!-- 网格视图 -->
+      <dz-grid-view>
+        <thead>
+          <tr>
+            <th lay-data="{field: 'id'}">编号</th>
+            <th lay-data="{field: 'name'}">名称</th>
+            <th lay-data="{field: 'link'}">链接</th>
+            <th lay-data="{field: 'sort'}">排序</th>
+            <th lay-data="{field: 'action'}">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="nav in navs">
+            <td>{{nav.id}}</td>
+            <td>{{nav.name}}</td>
+            <td><a :href="nav.link">{{nav.link}}</a></td>
+            <td>{{nav.sort}}</td>
+            <td>
+              <dz-button class="layui-btn-xs layui-btn-primary" :to="'/pages/nav/view/view?id='+nav.id">查看</dz-button>
+              <dz-button class="layui-btn-xs" :to="'/pages/nav/edit/edit?id='+nav.id">编辑</dz-button>
+              <dz-button class="layui-btn-xs layui-btn-danger" :delete-url="'api/nav.php/nav/delete?id='+nav.id">删除</dz-button>
+            </td>
+          </tr>
+        </tbody>
+      </dz-grid-view>
+      <!-- /.网格视图 -->
+    </dz-card>
+    <!-- /.卡片面板 -->
+  </dz-page>
+  <!-- /.页面区域 -->
+  

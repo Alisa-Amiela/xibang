@@ -1,0 +1,18 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>首页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>新闻列表</dz-breadcrumb-item>
+		<dz-breadcrumb-item>添加页面</dz-breadcrumb-item>
+		<dz-card>
+			<dz-form action="http://localhost:3000/news/add">
+				<dz-input label="文章标题" name="title" placeholder="请输入标题……"></dz-input>
+				<dz-textarea label="文章描述" name="content" placeholder="请输入内容……"></dz-textarea>
+				<dz-file-upload label="文章封面" name="cover" value="请选择图片"></dz-file-upload>
+				<dz-datepicker label="发布日期" name="pubdate" placeholder="请点此选择日期……"></dz-datepicker>
+				<!--内容-->
+				<dz-textarea label="文章内容" placeholder="请输入内容……" layedit-id="content"></dz-textarea>
+				<dz-submit>提交</dz-submit>
+			</dz-form>
+		</dz-card>
+	</dz-breadcrumb>
+</dz-page>
