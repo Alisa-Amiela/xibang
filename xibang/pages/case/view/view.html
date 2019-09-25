@@ -1,0 +1,32 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>首页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>案例管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>详情页面</dz-breadcrumb-item>
+	</dz-breadcrumb>
+	<dz-card>
+		<dz-detail-view>
+			<tr>
+				<th>编号</th>
+				<td>{{item.id}}</td>
+			</tr>
+			<tr>
+				<th>标题</th>
+				<td>{{item.title}}</td>
+			</tr>
+			<tr>
+				<th>分类</th>
+				<td v-if="item.category == 0">全案设计</td>
+				<td v-if="item.category == 1">广告设计</td>
+			</tr>
+			<tr>
+				<th>封面</th>
+				<td><img :src="item.photo"/></td>
+			</tr>
+			<tr>
+				<th>排序</th>
+				<td>{{item.sort}}</td>
+			</tr>
+		</dz-detail-view>
+	</dz-card>
+</dz-page>

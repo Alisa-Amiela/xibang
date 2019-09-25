@@ -1,0 +1,37 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>主页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>广告管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>广告列表</dz-breadcrumb-item>
+	</dz-breadcrumb>
+	<dz-card>
+		<dz-button class="layui-btn-sm layui-btn-danger layuiadmin-btn-list">批量删除</dz-button>
+		<dz-button class="layui-btn-sm" to="/pages/ad/add/add">添加</dz-button>
+		<dz-grid-view>
+			<thead>
+				<tr>
+					<th lay-data="{field: 'id'}">编号</th>
+					<th lay-data="{field: 'object'}">主题</th>
+					<th lay-data="{field: 'image'}">图片</th>
+					<th lay-data="{field: 'link'}">链接</th>
+					<th lay-data="{field:  'sort'}">排序</th>
+					<th lay-data="{field: 'action'}">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="ad in ads">
+					<td>{{ad.id}}</td>
+					<td>{{ad.object}}</td>
+					<td><img :src="ad.image"/></td>
+					<td><a :href="ad.link" target="_blank">{{ad.link}}</a></td>
+					<td>{{ad.sort}}</td>
+					<td>
+						<dz-button class="layui-btn-xs layui-btn-primary" :to="'/pages/ad/view/view?id='+ad.id">查看</dz-button>
+						<dz-button class="layui-btn-xs" :to="'/pages/ad/edit/edit?id='+ad.id">编辑</dz-button>
+						<dz-button class="layui-btn-xs layui-btn-danger">删除</dz-button>
+					</td>
+				</tr>
+			</tbody>
+		</dz-grid-view>
+	</dz-card>
+</dz-page>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@douzhi/database": "^0.4.0",
+    "@douzhi/vueui": "^0.8.3"
+  }
+}
