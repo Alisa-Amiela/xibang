@@ -19,3 +19,7 @@ $dzApi->post("/member/add",function($request){
 $dzApi->get("/member/delete",function($id){
 	excel("member")->where(["id"=>$id])->delete();
 });
+// 更新记录
+$dzApi->post("/member/edit",function(){
+	excel("member")->where(["id"=>$id])->update($request->all());
+});

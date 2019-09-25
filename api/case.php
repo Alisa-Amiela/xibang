@@ -8,7 +8,7 @@ $dzApi->get("/case",function(){
 });
 //查询单条记录
 $dzApi->get("/case/view",function($request){
-	return excel("")->where(["id"=>$request->get("id")])->find();
+	return excel("case")->where(["id"=>$request->get("id")])->find();
 });
 // 新增记录
 $dzApi->post("/case/add",function($request){

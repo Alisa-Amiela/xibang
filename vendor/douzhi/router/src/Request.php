@@ -25,6 +25,6 @@ class Request
 
   public function all()
   {
-    return array_merge($_GET, $_POST);
+    return json_decode(file_get_contents('php://input'), true);
   }
 }

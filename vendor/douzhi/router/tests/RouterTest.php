@@ -1,6 +1,7 @@
 <?php
 
 use Douzhi\Router;
+use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
@@ -10,6 +11,22 @@ class RouterTest extends TestCase
   public function setUp(): void
   {
     $this->dzApi = new Router();
+  }
+
+  public function testPost()
+  {
+    $form_params = [
+        'field_name' => 'abc',
+        'other_field' => '123',
+        'nested_field' => [
+            'nested' => 'hello'
+        ]
+    ];
+    $client = new Client();
+    $response = $client->request('POST', 'http://localhost/router/example/index.php/foo', [
+        'form_params' => $form_params
+    ]);
+    $this->assertEquals(json_encode($form_params), $response->getBody());
   }
 
   public function testGetString()
@@ -76,13 +93,13 @@ class RouterTest extends TestCase
     ]), $this->dzApi->getActionResult('POST', '/foo'));
   }
 
-  public function testRequestAll()
-  {
-    $_GET = [];
-    $_POST['id'] = 1;
-    $this->dzApi->post("/all", function ($request) {
-      return $request->all();
-    });
-    $this->assertEquals(json_encode($_POST), $this->dzApi->getActionResult('POST', '/all'));
-  }
+  //  public function testRequestAll()
+  //  {
+  //    $_GET = [];
+  //    $_POST['id'] = 1;
+  //    $this->dzApi->post("/all", function ($request) {
+  //      return $request->all();
+  //    });
+  //    $this->assertEquals(json_encode($_POST), $this->dzApi->getActionResult('POST', '/all'));
+  //  }
 }
