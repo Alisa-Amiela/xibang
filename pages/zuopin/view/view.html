@@ -1,0 +1,39 @@
+<dz-page>
+	<dz-breadcrumb>
+		<dz-breadcrumb-item>首页</dz-breadcrumb-item>
+		<dz-breadcrumb-item>作品管理</dz-breadcrumb-item>
+		<dz-breadcrumb-item>详情页面</dz-breadcrumb-item>
+	</dz-breadcrumb>
+	<dz-card>
+		<dz-detail-view>
+			<tr>
+				<th>编号</th>
+				<td>{{zuopin.id}}</td>
+			</tr>
+			<tr>
+				<th>名称</th>
+				<td>{{zuopin.name}}</td>
+			</tr>
+			<tr>
+				<th>文案</th>
+				<td>{{zuopin.text}}</td>
+			</tr>
+			<tr>
+				<th>日期</th>
+				<td>{{zuopin.date}}</td>
+			</tr>
+			<tr>
+				<th>图片</th>
+				<td>{{zuopin.image}}</td>
+			</tr>
+			<tr>
+				<th>链接</th>
+				<td><a :href="zuopin.link" target="_blank" >{{zuopin.link}}</a></td>
+			</tr>
+			<tr>
+				<th>排序</th>
+				<td>{{zuopin.sort}}</td>
+			</tr>
+		</dz-detail-view>
+	</dz-card>
+</dz-page>

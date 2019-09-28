@@ -11,7 +11,10 @@ Page({
 	},
 	methods:{
 		doSubmit(){
-			axios.post("api/index.php/member/edit?id="+ this.$route.query.id,this.member);
+			axios.post("api/index.php/member/edit?id="+ this.$route.query.id,this.member)
+			.then(() => {
+				this.layer.confirm("更新成功",{btn:["关闭"]});
+			});
 			}
 	}
 });

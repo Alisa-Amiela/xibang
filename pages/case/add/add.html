@@ -5,13 +5,13 @@
 		<item>添加页面</item>
 	</dz-breadcrumb>
 	<dz-card>
-		<dz-form action="http://xibang.test/case.php/case/add">
-			<dz-input name="title" label="标题" placeholder="请输入标题……"></dz-input>
-	    	<dz-select name="category" label="分类" placeholder="请输入分类……" :options="['全案设计','广告设计']">
+		<dz-form>
+			<dz-input name="title" v-model="item.name" label="标题" placeholder="请输入标题……"></dz-input>
+	    	<dz-select name="category" v-model="item.category" label="分类" placeholder="请输入分类……" :options="['全案设计','广告设计']">
 	    	</dz-select>
-	    	<dz-file-upload label="封面" placeholder="请上传封面……" name="photo"></dz-file-upload>
-	    	<dz-textarea name="description" label="简述" placeholder="请输入简述……"></dz-textarea>
-	    	<dz-textarea name="content" label="内容" placeholder="请输入内容……" layedit-id="content"></dz-textarea>
+	    	<dz-file-upload label="封面" v-model="item.photo" placeholder="请上传封面……" name="photo"></dz-file-upload>
+	    	<dz-textarea name="description" v-model="item.description" label="简述" placeholder="请输入简述……"></dz-textarea>
+	    	<dz-textarea name="content" v-model="item.content" label="内容" placeholder="请输入内容……"></dz-textarea>
 	    	<dz-submit>提交</dz-submit>
 		</dz-form>
 	</dz-card>

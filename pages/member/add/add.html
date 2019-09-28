@@ -5,12 +5,12 @@
 		<dz-breadcrumb-item>添加页面</dz-breadcrumb-item>
 	</dz-breadcrumb>
 	<dz-card>
-		<dz-form action="http://xibang.test/api/index.php/member/add">
-			<dz-input label="名称" name="name" placeholder="请输入名称……"></dz-input>
-			<dz-input label="职位" name="position" placeholder="请输入职位……"></dz-input>
-			<dz-input label="图片" name="photo" placeholder="请输入图片……"></dz-input>
-			<dz-input label="介绍" name="introduction" placeholder="请输入介绍……"></dz-input>
-			<dz-submit>提交</dz-submit>
+		<dz-form>
+			<dz-input label="名称" v-model="member.name" placeholder="请输入名称……"></dz-input>
+			<dz-input label="职位" v-model="member.position" placeholder="请输入职位……"></dz-input>
+			<dz-file-upload label="图片" v-model="member.filename" placeholder="请输入图片……"></dz-file-upload>
+			<dz-input label="介绍" v-model="member.introduction" placeholder="请输入介绍……"></dz-input>
+			<dz-submit @click.native="doSubmit">提交</dz-submit>
 		</dz-form>
 	</dz-card>
 </dz-page>

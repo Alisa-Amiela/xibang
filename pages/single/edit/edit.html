@@ -1,0 +1,16 @@
+<dz-page>
+        <dz-breadcrumb>
+            <dz-breadcrumb-item>首页</dz-breadcrumb-item>
+            <dz-breadcrumb-item>单页文章</dz-breadcrumb-item>
+            <dz-breadcrumb-item>编辑页面</dz-breadcrumb-item>
+        </dz-breadcrumb>
+        <dz-card>
+            <dz-form>
+                <dz-input label="标题" name="title" v-model="single.title" placeholder="请输入标题……">
+                </dz-input>
+                <dz-input label="小标题" name="small_title" v-model="single.small_title" placeholder="请上传小标题">
+                </dz-input>
+                <dz-submit @click.native="doSubmit">提交</dz-submit>
+            </dz-form>
+        </dz-card>
+    </dz-page>

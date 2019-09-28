@@ -1,6 +1,7 @@
 {
     "require": {
-        "douzhi/router": "^0.2.3",
-        "douzhi/database": "^0.2.5"
+        "douzhi/router": "^0.2.6",
+        "douzhi/database": "^0.2.5",
+        "douzhi/uploader": "^0.1.3"
     }
 }

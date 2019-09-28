@@ -18,6 +18,12 @@
 				<cell>职位</cell>
 				<cell>{{member.position}}</cell>
 			</row>
+			<row>
+				<cell>照片</cell>
+				<cell>
+					<a :href="'uploads/'+ member.filename" target="_blank"><img :src="'uploads/thumb_' + member.filename" /></a>
+				</cell>
+			</row>
 		</dz-detail-view>
 	</dz-card>
 </dz-page>

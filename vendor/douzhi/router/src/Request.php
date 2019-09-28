@@ -25,6 +25,10 @@ class Request
 
   public function all()
   {
-    return json_decode(file_get_contents('php://input'), true);
+    if(stripos($_SERVER['CONTENT_TYPE'], 'application/json') != -1){
+      return json_decode(file_get_contents('php://input'), true);
+    }else{
+      return $_POST;
+    }
   }
 }

@@ -19,6 +19,7 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^8.3",
-    "guzzlehttp/guzzle": "^6.3"
+    "guzzlehttp/guzzle": "^6.3",
+    "douzhi/uploader": "^0.1.2"
   }
 }

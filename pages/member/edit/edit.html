@@ -6,15 +6,15 @@
 	</dz-breadcrumb>
 	<dz-card>
 		<dz-form>
-			<dz-input label="名称" v-model="member.name" placeholder="请输入名称……">
+			<dz-input label="名称" name="name" v-model="member.name" placeholder="请输入名称……">
 			</dz-input>
-			<dz-input label="职位" :value="member.position" placeholder="请输入职位……">
+			<dz-input label="职位" name="position" v-model="member.position" placeholder="请输入职位……">
 			</dz-input>
-			<dz-file-upload label="照片" :value="member.photo" placeholder="请上传图片">
+			<dz-file-upload label="照片" name="filename" v-model="member.filename" url="api/index.php/upload?width=200&height=200" placeholder="请上传照片">
 			</dz-file-upload>
-			<dz-textarea label="介绍" :value="member.introduction" placeholder="请输入介绍……">
+			<dz-textarea label="介绍" name="introduction" v-model="member.introduction" placeholder="请输入介绍……">
 			</dz-textarea>
-			<dz-submit>提交</dz-submit>
+			<dz-submit @click.native="doSubmit">提交</dz-submit>
 		</dz-form>
 	</dz-card>
 </dz-page>

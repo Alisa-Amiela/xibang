@@ -1,0 +1,31 @@
+<dz-page>
+        <dz-breadcrumb>
+            <item>主页</item>
+            <item>单页文章</item>
+            <item>列表页面</item>
+        </dz-breadcrumb>
+        <dz-card>
+            <dz-button to="/pages/single/add/add">添加</dz-button>
+            <dz-grid-view>
+                <dz-header>
+                    <row>
+                        <cell name="id" width="80">编号</cell>
+                        <cell name="title" width="100">标题</cell>
+                        <cell name="small_title">小标题</cell>
+                        <cell name="action" width="200">操作</cell>
+                    </row>
+                </dz-header>
+                <dz-body>
+                    <row v-for= "single in singles">
+                        <cell>{{single.id}}</cell>
+                        <cell>{{single.title}}</cell>
+                        <cell>{{single.small_title}}</cell>
+                        <cell>
+                            <dz-button theme="primary" to="pages/single/add/add">查看</dz-button>
+                            <dz-button to="pages/single/edit/edit">编辑</dz-button>
+                        </cell>
+                    </row>
+                </dz-body>
+            </dz-grid-view>
+        </dz-card>
+</dz-page>

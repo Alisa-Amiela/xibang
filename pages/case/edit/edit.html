@@ -2,16 +2,16 @@
 	<dz-breadcrumb>
 		<dz-breadcrumb-item>主页</dz-breadcrumb-item>
 		<dz-breadcrumb-item>案例管理</dz-breadcrumb-item>
-		<dz-breadcrumb-item>更新页面</dz-breadcrumb-item>
+		<dz-breadcrumb-item>编辑页面</dz-breadcrumb-item>
 	</dz-breadcrumb>
 	<dz-card>
-	    <dz-form data-url="http://localhost:3000/case/view" action="http://localhost:3000/case/edit">
-	    	<dz-input name="title" label="标题" placeholder="请输入标题……"></dz-input>
-	    	<dz-input name="category" label="分类" placeholder="请输入分类……"></dz-input>
-	    	<dz-file-upload label="封面" placeholder="请输入封面……"></dz-file-upload>
-	    	<dz-textarea name="description" label="简述" placeholder="请输入简述……"></dz-textarea>
-	    	<dz-textarea name="content" label="内容" placeholder="请输入内容……" layedit-id="content"></dz-textarea>
-	    	<dz-submit>提交</dz-submit>
+	    <dz-form>
+	    	<dz-input name="title" v-model="item.title" label="标题" placeholder="请输入标题……"></dz-input>
+	    	<dz-input name="category" v-model="item.category" label="分类" placeholder="请输入分类……"></dz-input>
+	    	<dz-file-upload label="封面" name="photo" v-model="item.photo" placeholder="请输入封面……" url="api/case.php/upload?width=100&height=100"></dz-file-upload>
+	    	<dz-textarea name="description" label="简述" v-model="item.description" placeholder="请输入简述……"></dz-textarea>
+	    	<dz-textarea name="content" label="内容" v-model="item.content" placeholder="请输入内容……"></dz-textarea>
+	    	<dz-submit @click.native="doSubmit">提交</dz-submit>
 	    </dz-form>
    </dz-card>
 </dz-page>
